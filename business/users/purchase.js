@@ -88,22 +88,23 @@ const cargarProductos = async () => {
                     const card = document.createElement("div");
                     card.classList.add("col-md-4", "mb-3");
                     card.innerHTML = `
-                        <div class="card product-card shadow-sm w-100" style="border-radius: 12px; overflow: hidden; font-size: 0.9rem;">
-                            <img src="${producto.imagenUrl || '../../../assets/common/img/placeholder-image.png'}" 
-                                 class="card-img-top product-image" 
-                                 alt="${producto.nombre}" 
-                                 onerror="this.onerror=null;this.src='../../../assets/common/img/placeholder-image.png';"
-                                 style="height: 160px; object-fit: cover;">
-                            <div class="card-body p-2 d-flex flex-column">
-                                <div class="text-truncate fw-semibold mb-1" style="font-size: 0.95rem;">${producto.nombre}</div>
-                                <div class="text-dark fw-bold mb-2" style="font-size: 0.95rem;">Q${producto.precio.toFixed(2)}</div>
-                                <button class="btn btn-sm btn-secondary mt-auto rounded-pill" 
-                                        onclick="agregarAlCarrito(${producto.idProducto}, '${producto.nombre}', ${producto.precio})">
-                                    <i class="bi bi-cart-plus me-1"></i> Agregar
-                                </button>
-                            </div>
+                    <div class="card product-card shadow-sm w-100" style="border-radius: 12px; overflow: hidden; font-size: 0.9rem;">
+                        <img src="${producto.imagenUrl || '../../../assets/common/img/placeholder-image.png'}" 
+                             class="card-img-top product-image" 
+                             alt="${producto.nombre}" 
+                             loading="lazy"
+                             onerror="this.onerror=null;this.src='../../../assets/common/img/placeholder-image.png';"
+                             style="height: 160px; object-fit: cover;">
+                        <div class="card-body p-2 d-flex flex-column">
+                            <div class="text-truncate fw-semibold mb-1" style="font-size: 0.95rem;">${producto.nombre}</div>
+                            <div class="text-dark fw-bold mb-2" style="font-size: 0.95rem;">Q${producto.precio.toFixed(2)}</div>
+                            <button class="btn btn-sm btn-secondary mt-auto rounded-pill" 
+                                    onclick="agregarAlCarrito(${producto.idProducto}, '${producto.nombre}', ${producto.precio})">
+                                <i class="bi bi-cart-plus me-1"></i> Agregar
+                            </button>
                         </div>
-                    `;
+                    </div>
+                `;
                     fila.appendChild(card);
                 });
 
