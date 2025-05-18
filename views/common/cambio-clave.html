@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Delivery Catracho</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../assets/common/css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="../../assets/common/img/ai-generated-burrito-clipart-design-illustration-free-png.webp">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="d-flex align-items-center justify-content-center vh-100 bg-light">
+
+<div class="card shadow-sm p-4 border-0" style="max-width: 380px; width: 100%;">
+    <!-- Logo + Título -->
+    <div class="text-center mb-2">
+        <img src="../../assets/common/img/ai-generated-burrito-clipart-design-illustration-free-png.webp"
+             alt="Tortilla Harina" width="65">
+        <h4 class="fw-bold mt-3 mb-1">Delivery Catracho</h4>
+        <p class="text-secondary">Cambio de contraseña</p>
+    </div>
+
+    <!-- Formulario -->
+    <form class="mt-3">
+        <div class="mb-3">
+            <label for="email" class="form-label fw-semibold">Correo Electrónico</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="email" placeholder="ej. usuario@correo.com" required>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="cellphone" class="form-label fw-semibold">Teléfono</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                <input type="number" class="form-control" id="cellphone" placeholder="Ej. 5123-4567" required>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="address" class="form-label fw-semibold">Dirección</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-house"></i></span>
+                <input type="text" class="form-control" id="address" placeholder="Dirección registrada" required>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="newPassword" class="form-label fw-semibold">Nueva Contraseña</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="newPassword" placeholder="Nueva contraseña" required>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="newPasswordConfirm" class="form-label fw-semibold">Confirmar Contraseña</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                <input type="password" class="form-control" id="newPasswordConfirm" placeholder="Repita la contraseña" required>
+            </div>
+        </div>
+
+        <!-- Botón de acción -->
+        <button type="button" class="btn btn-success w-100 mt-2 shadow-sm" onclick="changePassword()">
+            <i class="bi bi-arrow-repeat me-1"></i> Cambiar Contraseña
+        </button>
+    </form>
+
+    <!-- Links inferiores -->
+    <div class="text-center mt-3 small">
+        <a href="login.html" class="text-muted">Iniciar sesión con una cuenta existente</a>
+    </div>
+    <div class="text-center mt-2 small">
+        <a href="nueva-cuenta.html" class="text-muted">Crea una cuenta</a>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+<script src="../../business/common/auth.js"></script>
+</body>
+
+</html>

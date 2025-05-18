@@ -1,0 +1,107 @@
+/* Reset y configuración global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Card general */
+.card {
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+.card img {
+    margin-bottom: 10px;
+}
+
+/* Título */
+.card h4 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #212529;
+    margin-bottom: 0.4rem;
+}
+
+/* Grupo de inputs estilo pill */
+.input-group {
+    border-radius: 50rem;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    box-shadow: inset 0 0 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+/* Alineación correcta de íconos */
+.input-group-text {
+    background-color: #e9ecef;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.65rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+}
+
+.input-group .form-control {
+    border: none;
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+.input-group .form-control::placeholder {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+/* Botón de login */
+.btn-success {
+    border-radius: 50rem;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.65rem;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 0.25rem 0.75rem rgba(25, 135, 84, 0.2);
+}
+
+.btn-success:hover {
+    background-color: #157347;
+}
+
+/* Enlaces */
+a.text-muted {
+    color: #6c757d;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+a.text-muted:hover {
+    color: #198754;
+    text-decoration: underline;
+}
+
+/* Ajustes para los textos debajo del botón */
+.small {
+    font-size: 0.88rem;
+}
