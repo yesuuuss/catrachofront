@@ -273,37 +273,27 @@ const orderCreated = async () => {
 // Función para insertar los detalles del pedido
 const insertOrderDetails = async (pedido, idPedido) => {
     try {
-        const groupedProducts = pedido.productos.reduce((acc, producto) => {
-            if (!acc[producto.id]) {
-                acc[producto.id] = { ...producto, cantidad: 1 };
-            } else {
-                acc[producto.id].cantidad += 1;
-            }
-            return acc;
-        }, {});
-
         let allSuccess = true;
 
-        for (const key in groupedProducts) {
-            const producto = groupedProducts[key];
-
+        for (const producto of pedido.productos) {
             const detalleBody = {
-                idDetalle: 0, // ID en 0 como se solicita
-                idPedido: idPedido, // Corregido para usar el ID del pedido recibido
+                idDetalle: 0,
+                idPedido: idPedido,
                 numeroPedido: pedido.numeroPedido.toString(),
-                idProducto: producto.id, // ID del producto
-                cantidad: producto.cantidad, // Cantidad correcta agrupada
-                precioUnitario: parseFloat(producto.precio) // Convertir precio a número
+                idProducto: producto.id,
+                cantidad: producto.cantidad,
+                precioUnitario: parseFloat(producto.precio)
             };
 
             const detalleData = await makeRequestPostPutOrder(fullApiUrlDetallesPedido, "POST", detalleBody);
 
             if (!detalleData.isSuccess) {
                 console.error("Error insertando detalle:", detalleData.message);
-                allSuccess = false; // No detener el proceso, pero marcarlo como fallo
+                allSuccess = false;
             }
         }
-        return allSuccess; // Retornar si al menos un detalle falló
+
+        return allSuccess;
     } catch (error) {
         Swal.fire({
             title: "Error",
@@ -313,6 +303,7 @@ const insertOrderDetails = async (pedido, idPedido) => {
         return false;
     }
 };
+
 
 //Funcion para confirmar que el pedido fue exitoso
 const successModal = function (numeroPedido) {
