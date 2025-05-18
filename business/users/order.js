@@ -89,7 +89,7 @@ const mostrarModal = function () {
 
     modalTotal.textContent = total.toFixed(2);
     modalFechaCreacion.textContent = new Date().toLocaleDateString();
-    modalFechaEntrega.textContent = new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleDateString();
+    modalFechaEntrega.textContent = new Date(Date.now() + 86400000).toLocaleDateString();
 
     const modal = new bootstrap.Modal(document.getElementById("modalConfirmacion"));
     modal.show();
@@ -100,6 +100,7 @@ const mostrarModal = function () {
 const finalizarPedido = function () {
     const direccionEntrega = document.getElementById("direccion").value.trim();
     const indicaciones = document.getElementById("indicaciones").value.trim();
+    const fechaEntregaISO = new Date(Date.now() + 86400000).toISOString(); // +1 día en formato ISO
 
     if (!direccionEntrega || !indicaciones) {
         Swal.fire({
@@ -155,8 +156,8 @@ const finalizarPedido = function () {
         numeroPedido: Math.floor(100000 + Math.random() * 900000),
         productos: carritoCompras,
         total: total.toFixed(2),
-        fechaCreacion: new Date().toLocaleDateString(),
-        fechaEntrega: new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleDateString(),
+        fechaCreacion: new Date().toISOString(),  // Siempre usar formato ISO
+        fechaEntrega: fechaEntregaISO,             // También ISO
         direccion: direccionEntrega,
         indicaciones: indicaciones || "N/A"
     };
