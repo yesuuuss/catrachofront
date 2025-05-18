@@ -78,7 +78,7 @@ const cargarProductos = async () => {
             for (const categoria in categorias) {
                 const titulo = document.createElement("h4");
                 titulo.classList.add("category-title");
-                titulo.textContent = `Nuestros ${categoria}`;
+                titulo.textContent = `Lo mejor en ${categoria}`;
                 productList.appendChild(titulo);
 
                 const fila = document.createElement("div");
