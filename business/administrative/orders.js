@@ -36,36 +36,40 @@ const printMenu = function () {
         }
 
         if (role == 1) {
-            adminNav.innerHTML = `<ul class="navbar-nav ms-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" href="../dashboard.html">Inicio</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" href="usuarios.html">Usuarios</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" href="productos.html">Productos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" href="pedidos.html">Pedidos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="btn btn-danger" onclick="closeSession()">Cerrar Sesión</a>
-                                    </li>
-                                </ul>`;
+            adminNav.innerHTML = `<ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-dark ms-3 me-3" href="../dashboard.html"><i class="bi bi-house fs-5"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark ms-3 me-3" href="usuarios.html"><i class="bi bi-people-fill fs-5"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark ms-3 me-3" href="productos.html"><i class="bi bi-box-seam fs-5"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark ms-3 me-3" href="pedidos.html"><i class="bi bi-receipt fs-5"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger ms-3 me-3" onclick="closeSession()">
+                        <i class="bi bi-box-arrow-left fs-5"></i>
+                    </a>
+                </li>
+            </ul>`;
         }
         else if (role == 3) {
-            adminNav.innerHTML = `<ul class="navbar-nav ms-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" href="../dashboard.html">Inicio</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" href="pedidos.html">Pedidos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="btn btn-danger" onclick="closeSession()">Cerrar Sesión</a>
-                                    </li>
-                                </ul>`;
+            adminNav.innerHTML = `<ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-dark ms-3 me-3" href="../dashboard.html"><i class="bi bi-house fs-5"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark ms-3 me-3" href="pedidos.html"><i class="bi bi-receipt fs-5"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger ms-3 me-3" onclick="closeSession()">
+                        <i class="bi bi-box-arrow-left fs-5"></i>
+                    </a>
+                </li>
+            </ul>`;
         }
         else {
             sessionStorage.removeItem('authToken');
