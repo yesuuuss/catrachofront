@@ -165,20 +165,34 @@ const agregarAlCarrito = function (id, nombre, precio) {
             </div>
         `;
         cart.appendChild(item);
-        Swal.fire({
-            toast: true,
-            position: 'top-end',
-            icon: 'success',
-            title: 'Producto agregado al carrito',
-            showConfirmButton: false,
-            timer: 1200
-        });
     }
 
     total += precio;
     totalElement.textContent = `${total.toFixed(2)}`;
     actualizarBotonConfirmar();
+
+    // Mostrar el carrito por unos segundos si pantalla es menor a 1000px
+    if (window.innerWidth < 1000) {
+        const carritoSidebar = document.getElementById("cartSidebarNode");
+
+        carritoSidebar.classList.add("show");
+
+        clearTimeout(carritoSidebar.timeoutId); // Limpiar timeout anterior si lo hay
+        carritoSidebar.timeoutId = setTimeout(() => {
+            carritoSidebar.classList.remove("show");
+        }, 2000);
+    }
+
+    Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'success',
+        title: 'Producto agregado al carrito',
+        showConfirmButton: false,
+        timer: 1200
+    });
 };
+
 
 const resetMetodoPago = function () {
     document.getElementById("pagoEfectivo").checked = true;
