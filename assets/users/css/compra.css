@@ -227,6 +227,15 @@ img {
     font-size: 1rem;
 }
 
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+textarea,
+select {
+    font-size: 16px !important;
+}
+
 /* Responsive */
 @media (max-width: 1000px) {
     .navbar-collapse .navbar-nav {
