@@ -27,51 +27,38 @@ const printMenu = function () {
             alert('No se pudo obtener el rol, por favor verifique.');
         }
         if (role == 1) {
-            adminNav.innerHTML = `
-            <ul class="navbar-nav flex-row mx-auto align-items-center justify-content-center">
+            adminNav.innerHTML = `<ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link text-dark mx-3" href="../dashboard.html">
-                       <i class="bi bi-house fs-5"></i>
-                    </a>
+                    <a class="nav-link text-dark ms-3 me-3" href="../dashboard.html"><i class="bi bi-house fs-5"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mx-3" href="usuarios.html">
-                       <i class="bi bi-people-fill fs-5"></i>
-                    </a>
+                    <a class="nav-link text-dark ms-3 me-3" href="usuarios.html"><i class="bi bi-people-fill fs-5"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mx-3" href="productos.html">
-                       <i class="bi bi-box-seam fs-5"></i>
-                    </a>
+                    <a class="nav-link text-dark ms-3 me-3" href="productos.html"><i class="bi bi-box-seam fs-5"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mx-3" href="pedidos.html">
-                       <i class="bi bi-receipt fs-5"></i>
-                    </a>
+                    <a class="nav-link text-dark ms-3 me-3" href="pedidos.html"><i class="bi bi-receipt fs-5"></i></a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-danger mx-3" onclick="closeSession()">
-                       <i class="bi bi-box-arrow-left fs-5"></i>
-                    </button>
+                    <a class="btn btn-danger ms-3 me-3" onclick="closeSession()">
+                        <i class="bi bi-box-arrow-left fs-5"></i>
+                    </a>
                 </li>
             </ul>`;
-        } else if (role == 3) {
-            adminNav.innerHTML = `
-            <ul class="navbar-nav flex-row mx-auto align-items-center justify-content-center">
+        }
+        else if (role == 3) {
+            adminNav.innerHTML = `<ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link text-dark mx-3" href="../dashboard.html">
-                       <i class="bi bi-house fs-5"></i>
-                    </a>
+                    <a class="nav-link text-dark ms-3 me-3" href="../dashboard.html"><i class="bi bi-house fs-5"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark mx-3" href="pedidos.html">
-                       <i class="bi bi-receipt fs-5"></i>
-                    </a>
+                    <a class="nav-link text-dark ms-3 me-3" href="pedidos.html"><i class="bi bi-receipt fs-5"></i></a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-danger mx-3" onclick="closeSession()">
-                       <i class="bi bi-box-arrow-left fs-5"></i>
-                    </button>
+                    <a class="btn btn-danger ms-3 me-3" onclick="closeSession()">
+                        <i class="bi bi-box-arrow-left fs-5"></i>
+                    </a>
                 </li>
             </ul>`;
         }
