@@ -53,7 +53,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8 col-xl-7">
             <div class="text-center mb-4">
-                <h4 class="text-secondary fw-semibold">Rastrea tu Pedido</h4>
+                <h3 class="text-dark fw-bold">Rastrea tu Pedido</h3>
                 <p class="text-muted">Consulta el estado y detalles de tu pedido ingresando el número</p>
             </div>
 
@@ -61,7 +61,7 @@
             <div class="bg-white p-4 rounded shadow-sm mb-4">
                 <form class="row g-2 align-items-center">
                     <div class="col-md-8">
-                        <input type="number" class="form-control rounded-pill px-4" id="numeroPedidoInput" placeholder="Número de pedido">
+                        <input type="number" class="form-control rounded-pill px-4" id="numeroPedidoInput" placeholder="Número de pedido" min="0">
                     </div>
                     <div class="col-md-4 d-flex gap-2">
                         <button type="button" class="btn btn-success w-100 rounded-pill" onclick="getOrderByOrderNumber()">
@@ -77,38 +77,38 @@
             <!-- Información del Pedido -->
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-secondary text-white text-center rounded-top">
-                    <h5 class="mb-0 fw-bold fs-5">Pedido #<span id="pedidoNumero">0</span></h5>
+                    <h4 class="mb-0 fw-bold fs-5">Pedido #<span id="pedidoNumero">0</span></h4>
                 </div>
                 <div class="card-body fs-6">
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <p class="mb-2">
-                                <strong>Estado:</strong>
+                            <h5 class="mb-2">
+                                <span>Estado:</span>
                                 <span id="pedidoEstado" class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 rounded-pill">N/A</span>
-                            </p>
-                            <p class="mb-2">
-                                <strong>Fecha de Creación:</strong><br>
+                            </h5>
+                            <h5 class="mb-2">
+                                <span>Fecha de Creación:</span><br>
                                 <span id="pedidoFecha" class="text-muted small">N/A</span>
-                            </p>
-                            <p class="mb-0">
-                                <strong>Fecha Estimada de Entrega:</strong><br>
+                            </h5>
+                            <h5 class="mb-0">
+                                <span>Fecha Estimada de Entrega:</span><br>
                                 <span id="pedidoEntrega" class="text-muted small">N/A</span>
-                            </p>
+                            </h5>
                         </div>
 
                         <div class="col-md-6">
-                            <p class="mb-2">
-                                <strong>Total:</strong>
+                            <h5 class="mb-2">
+                                <span>Total:</span>
                                 <span class="text-dark fw-bold">Q<span id="pedidoTotal">0.00</span></span>
-                            </p>
-                            <p class="mb-2">
-                                <strong>Dirección proporcionada:</strong><br>
+                            </h5>
+                            <h5 class="mb-2">
+                                <span>Dirección proporcionada:</span><br>
                                 <span id="direccion" class="text-muted">N/A</span>
-                            </p>
-                            <p class="mb-0">
-                                <strong>Número de teléfono:</strong><br>
+                            </h5>
+                            <h5 class="mb-0">
+                                <span>Número de teléfono:</span><br>
                                 <span id="indicaciones" class="text-muted">N/A</span>
-                            </p>
+                            </h5>
                         </div>
                     </div>
                 </div>

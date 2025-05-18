@@ -68,12 +68,20 @@ const getOrderByOrderNumber = async () => {
     const numeroOrdenValidacion = /^[0-9]+$/;
 
     if (!numeroOrden) {
-        alert('Debes ingresar el número de orden para buscar.');
+        Swal.fire({
+            title: "Error",
+            text: "Debes ingresar el número de orden para buscar.",
+            icon: "error"
+        });
         return;
     }
 
     if (!numeroOrdenValidacion.test(numeroOrden)) {
-        alert('El número de orden debe contener solo números.');
+        Swal.fire({
+            title: "Error",
+            text: "El número de orden debe contener solo números.",
+            icon: "error"
+        });
         return;
     }
 
