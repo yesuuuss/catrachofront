@@ -14,9 +14,7 @@ const makeRequestPostPutOrder = async (url, method, body) => {
     // Agrega el token al encabezado Authorization si existe
     if (!token) {
         Swal.fire({
-            title: "Error",
-            text: "No se procesaron las solicitudes, vuelve a loguearte.",
-            icon: "error"
+            title: "Error", text: "No se procesaron las solicitudes, vuelve a loguearte.", icon: "error"
         });
         return;
     }
@@ -24,10 +22,7 @@ const makeRequestPostPutOrder = async (url, method, body) => {
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     const requestOptions = {
-        method: method,
-        headers: myHeaders,
-        body: JSON.stringify(body),
-        redirect: "follow"
+        method: method, headers: myHeaders, body: JSON.stringify(body), redirect: "follow"
     };
 
     try {
@@ -54,9 +49,7 @@ const makeReuestGetDeleteOrder = async (url, method) => {
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     const reuestOptions = {
-        method: method,
-        headers: myHeaders,
-        redirect: "follow"
+        method: method, headers: myHeaders, redirect: "follow"
     };
 
     try {
@@ -104,9 +97,7 @@ const finalizarPedido = function () {
 
     if (!direccionEntrega || !indicaciones) {
         Swal.fire({
-            title: "Advertencia",
-            text: "Ingresa una dirección y número de teléfono para continuar.",
-            icon: "warning"
+            title: "Advertencia", text: "Ingresa una dirección y número de teléfono para continuar.", icon: "warning"
         });
         return;
     }
@@ -129,13 +120,30 @@ const finalizarPedido = function () {
         const fecha = document.getElementById("fechaExp").value.trim();
         const cvv = document.getElementById("cvv").value.trim();
 
-       if (!nombre || numero.length !== 16 || !/^\d{2}\/\d{2}$/.test(fecha) || !/^\d{3,4}$/.test(cvv)) {
-
+        if (!nombre || numero.length !== 16 || !/^\d{2}\/\d{2}$/.test(fecha) || !/^\d{3,4}$/.test(cvv)) {
             Swal.fire({
                 icon: "warning",
                 title: "Datos inválidos",
                 text: "Revisa que los datos de la tarjeta estén completos y correctos."
             });
+            return;
+        } else {
+            Swal.fire({
+                title: "Conectando con Cybersource",
+                text: "Estamos procesando tu pago...",
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+            setTimeout(() => {
+                Swal.fire({
+                    icon: "error",
+                    title: "No se pudo procesar el pago",
+                    html: `No se pudieron conectar con los servicios de <a href="https://neonet.com.gt/e_commerce/cybersource" target="_blank">Cybersource</a>. 
+                    Intenta más tarde o utiliza otro método de pago.`,
+                });
+            }, 4000);
             return;
         }
     }
@@ -144,9 +152,7 @@ const finalizarPedido = function () {
         const wallet = document.getElementById("walletId").value.trim();
         if (!wallet) {
             Swal.fire({
-                icon: "warning",
-                title: "Falta Wallet ID",
-                text: "Debes ingresar tu Wallet ID para pagar con Bitcoin."
+                icon: "warning", title: "Falta Wallet ID", text: "Debes ingresar tu Wallet ID para pagar con Bitcoin."
             });
             return;
         }
@@ -166,15 +172,12 @@ const finalizarPedido = function () {
 
     if (!localStorage.getItem("ultimoPedido")) {
         Swal.fire({
-            title: "Advertencia",
-            text: "No existe ningún pedido, por favor, crea uno para continuar.",
-            icon: "warning"
+            title: "Advertencia", text: "No existe ningún pedido, por favor, crea uno para continuar.", icon: "warning"
         });
     }
 
     orderCreated();
 };
-
 
 
 // Función para insertar el pedido y sus detalles en una transacción simulada
@@ -183,9 +186,7 @@ const orderCreated = async () => {
 
     if (!pedidoJson) {
         Swal.fire({
-            title: "Advertencia",
-            text: "No existe ningún pedido, por favor, crea uno para continuar.",
-            icon: "warning"
+            title: "Advertencia", text: "No existe ningún pedido, por favor, crea uno para continuar.", icon: "warning"
         });
         return;
     }
@@ -195,17 +196,13 @@ const orderCreated = async () => {
         pedido = JSON.parse(pedidoJson);
         if (!pedido || !pedido.numeroPedido || !pedido.fechaEntrega || !pedido.total) {
             Swal.fire({
-                title: "Advertencia",
-                text: "El pedido creado es inválido.",
-                icon: "warning"
+                title: "Advertencia", text: "El pedido creado es inválido.", icon: "warning"
             });
             return;
         }
     } catch (error) {
         Swal.fire({
-            title: "Error",
-            text: error,
-            icon: "error"
+            title: "Error", text: error, icon: "error"
         });
         return;
     }
@@ -213,9 +210,7 @@ const orderCreated = async () => {
     const encodedUserId = localStorage.getItem("uuid"); // Obtener el ID en base64
     if (!encodedUserId) {
         Swal.fire({
-            title: "Advertencia",
-            text: "No se encontró un usuario, por favor, vuelve a loguearte.",
-            icon: "warning"
+            title: "Advertencia", text: "No se encontró un usuario, por favor, vuelve a loguearte.", icon: "warning"
         });
         return;
     }
@@ -239,9 +234,7 @@ const orderCreated = async () => {
 
         if (!pedidoData.isSuccess) {
             Swal.fire({
-                title: "Advertencia",
-                text: "No se pudo crear el pedido, intenta nuevamente.",
-                icon: "warning"
+                title: "Advertencia", text: "No se pudo crear el pedido, intenta nuevamente.", icon: "warning"
             });
             return;
         }
@@ -263,9 +256,7 @@ const orderCreated = async () => {
         successModal(pedido.numeroPedido.toString());
     } catch (error) {
         Swal.fire({
-            title: "Error",
-            text: error,
-            icon: "error"
+            title: "Error", text: error, icon: "error"
         });
     }
 };
@@ -297,9 +288,7 @@ const insertOrderDetails = async (pedido, idPedido) => {
         return allSuccess;
     } catch (error) {
         Swal.fire({
-            title: "Error",
-            text: error,
-            icon: "error"
+            title: "Error", text: error, icon: "error"
         });
         return false;
     }
